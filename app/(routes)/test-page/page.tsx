@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const TestPage = async () => {
 
-    const billboard = await getBillboard("9a5d4c38-9d6e-43ae-857a-bd53a56ca7ba");
+    const billboard = await getBillboard();
 
 
 
