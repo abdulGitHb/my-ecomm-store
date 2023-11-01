@@ -42,7 +42,7 @@ const HomePage = async() =>{
                             className='w-full h-full overflow-scroll scroll gap-x-2 whitespace-nowrap scroll-smooth scrollbar-hide'>
                             {billboards.map((item)=>(
                                 <div className="w-full inline-block">
-                                    <Billboard data={item}/>
+                                    <Billboard key={item.id} data={item}/>
                                 </div>
                             ))}
                         </div>
