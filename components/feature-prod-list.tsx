@@ -37,7 +37,7 @@ const FeatureProdList: React.FC<FeatureProdListProps> =({title, items})=>{
                 <div id='slider'
                     className='w-full h-full overflow-scroll scroll scroll-smooth scrollbar-hide'>
                     {items.map((item)=>(
-                        <div className="w-[260px] sm:w-[480px] h-[215px] inline-block p-2">
+                        <div key={item.id} className="w-[260px] sm:w-[480px] h-[215px] inline-block p-2">
                             <FeatureProdCard key={item.id} data={item}/>
                         </div>
                     ))}
