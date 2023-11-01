@@ -8,7 +8,6 @@ interface Query{
     colorId?: string;
     sizeId?: string;
     isFeatured?: boolean;
-    material?: string;
 }
 
 const getProducts =async(query: Query): Promise<Product[]> =>{
@@ -19,11 +18,10 @@ const getProducts =async(query: Query): Promise<Product[]> =>{
             sizeId: query.sizeId,
             categoryId: query.categoryId,
             isFeatured: query.isFeatured,
-            material: query.material,
         },
     });
     const res = await fetch(url);
-    console.log(res.json(), "inside get products");
+    // console.log(res.json(), "inside get products");
 
     return res.json();
 };
