@@ -37,7 +37,7 @@ const ProductList: React.FC<ProductListProps> =({title, items})=>{
                 <div id='slider'
                     className='w-full h-full overflow-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
                     {items.map((item)=>(
-                        <div className="w-[230px] inline-block p-2">
+                        <div key={item.id} className="w-[230px] inline-block p-2">
                             <ProductCard key={item.id} data={item}/>
                         </div>
                     ))}

@@ -29,7 +29,7 @@ const HomePage = async() =>{
     const products = await getProducts({ isFeatured: true });
 
     const billboards = await getBillboard();
-    
+
     console.log("billboard",billboards);
     console.log("productss",products);
     
@@ -41,7 +41,7 @@ const HomePage = async() =>{
                         <div id='slider'
                             className='w-full h-full overflow-scroll scroll gap-x-2 whitespace-nowrap scroll-smooth scrollbar-hide'>
                             {billboards.map((item)=>(
-                                <div className="w-full inline-block">
+                                <div key={item.id} className="w-full inline-block">
                                     <Billboard key={item.id} data={item}/>
                                 </div>
                             ))}
