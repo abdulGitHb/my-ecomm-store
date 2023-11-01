@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Urbanist } from 'next/font/google'
 import './globals.css'
+import NextTopLoader from 'nextjs-toploader'
 
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
@@ -12,6 +13,12 @@ const font = Urbanist({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'CupShup Store',
   description: 'Your ultimate crockery destination',
+  icons:{
+    icon:[{
+      url:"/cupshop-logo.svg",
+      href:"/cupshop-logo.svg",
+    }]
+  }
 }
 
 export default function RootLayout({
@@ -25,6 +32,7 @@ export default function RootLayout({
         <ModalProvider/>
         <ToastProvider/>
         <Navbar/>
+        {/* <NextTopLoader/> */}
         {children}
         <Footer/>
       </body>

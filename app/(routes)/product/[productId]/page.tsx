@@ -1,8 +1,8 @@
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
+import FeatureProdList from "@/components/feature-prod-list";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
-import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 
 interface ProductPageProps{
@@ -19,6 +19,8 @@ const ProductPage:React.FC<ProductPageProps> = async ({params}) =>{
         categoryId: product?.category?.id
     })
 
+    const filteredSuggested = suggestedProduct.filter((item) => item.id !== product?.id);
+
     return (
         <div className="bg-white">
             <Container>
@@ -33,7 +35,11 @@ const ProductPage:React.FC<ProductPageProps> = async ({params}) =>{
                     </div>
                     <hr className="my-10" />
                     {/* suggested products */}
-                    <ProductList title="Related Items" items={suggestedProduct}/>
+                    <FeatureProdList title="Related Items" items={filteredSuggested}/>
+                    <hr />
+                    <div>
+                        <h1 className="text-3xl font-bold mt-4">Customer Reviews</h1>
+                    </div>
                 </div>
             </Container>
         </div>
