@@ -38,7 +38,7 @@ const FeatureProdCard:React.FC<FeatureProdCard> =({data})=>{
 
     return (
         <div onClick={handleClick} className="bg-white h-full w-full flex flex-col sm:flex-row justify-around group cursor-pointer rounded-xl border p-3 space-y-4">
-            <div className="aspect-square max-w-[150px] sm:max-w-[200px] m-auto rounded-xl relative">
+            <div className="m-auto rounded-xl min-w-[150px]">
                 <Image
                     width={150}
                     height={150}
@@ -52,8 +52,8 @@ const FeatureProdCard:React.FC<FeatureProdCard> =({data})=>{
 
         {/* Description */}
         <div className="flex flex-col ml-6">
-            <div>
-                <p className="font-semibold text-3xl w-[173px] break-words">
+            <div >
+                <p className="font-semibold text-xl w-[173px] break-words">
                     {data.name}
                 </p>
                 <p className="text-sm text-gray-500">
@@ -62,13 +62,13 @@ const FeatureProdCard:React.FC<FeatureProdCard> =({data})=>{
                 <p>⭐⭐⭐⭐⭐</p>
             </div>
         {/* Price */}
-            <div className="mt-3 flex items-center justify-start gap-3">
-                    <p className="text-xl line-through font-sans text-gray-600">
-                        {/* here we will show original price */}
+            <div className="mt-3 flex items-center gap-3">
+                    <p className="text-lg sm:text-2xl font-sans text-gray-900">
+                        {/* here we will show discounted price */}
                         <Currency value={data?.price}/>
                     </p>
-                    <p className="text-2xl font-sans text-gray-900">
-                        {/* here we will show discounted price */}
+                    <p className="text-md sm:text-xl line-through font-sans text-gray-600">
+                        {/* here we will show original price */}
                         <Currency value={data?.price}/>
                     </p>
             </div>

@@ -2,8 +2,10 @@ import Container from "@/components/ui/container";
 import MainNav from "@/components/main-nav";
 import getCategories from "@/actions/get-categories";
 import NavbarActions from "./navbar-actions";
+import logoWebMain from "../public/logo-website-main2.svg"
 
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate=0;
 
@@ -14,9 +16,12 @@ const Navbar =async ()=>{
     return (
         <div className=" border-b">
             <Container>
-                <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
+                <div className="relative px-2 sm:px-4 lg:px-4 flex h-16 items-center">
                     <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
-                        <p className="font-bold text-xl">STORE</p>
+                        <Image
+                            src={logoWebMain}
+                            alt="logo"
+                            width={140}/>
                     </Link>
                     <MainNav data={categories}/>
                     <NavbarActions/>

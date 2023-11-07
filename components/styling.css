@@ -1,0 +1,8 @@
+.grid-dropdown-menu {
+    width: 300px;
+    background-color: rgb(151, 248, 113); /* This is equivalent to bg-red-400 in Tailwind */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; /* This is equivalent to gap-4 in Tailwind */
+    padding: 1rem; /* This is equivalent to p-4 in Tailwind */
+  }

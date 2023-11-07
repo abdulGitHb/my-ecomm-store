@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { Expand, ShoppingCart } from "lucide-react";
+import { Expand, Heart, ShoppingCart } from "lucide-react";
 
 import { Product } from "@/types";
 import IconButton from "./icon-button";
@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
+import saletag2 from "../../public/sale-tag-2.svg"
+import useFavourite from "@/hooks/use-favourite";
 
 interface ProductCard{
     data: Product;
@@ -20,6 +22,7 @@ const ProductCard:React.FC<ProductCard> =({data})=>{
     const previewModal = usePreviewModal();
     const router = useRouter();
     const cart = useCart();
+    const favourite = useFavourite();
 
     const handleClick = () =>{
         router.push(`/product/${data.id}`)
@@ -34,10 +37,19 @@ const ProductCard:React.FC<ProductCard> =({data})=>{
         event.stopPropagation();
         cart.addItem(data);
     }
+    const onAddToWishlist: MouseEventHandler<HTMLButtonElement> = (event) =>{
+        event.stopPropagation();
+        favourite.addItem(data);
+    }
 
 
     return (
-        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+        <div onClick={handleClick} className="relative bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+            <Image
+            src={saletag2}
+            alt="sale tag"
+            width={70}
+            className="absolute z-10  -top-[8px] -right-[8px]"/>
             <div className="aspect-square rounded-xl bg-gray-100 relative">
                 <Image
                     src={data?.images?.[0].url}
@@ -54,6 +66,10 @@ const ProductCard:React.FC<ProductCard> =({data})=>{
                     <IconButton 
                         onClick={onAddToCart}
                         icon={<ShoppingCart size={20} className="text-gray-600"/> }
+                    />
+                    <IconButton 
+                        onClick={onAddToWishlist}
+                        icon={<Heart size={20} className="text-gray-600"/> }
                     />
                 </div>
             </div>

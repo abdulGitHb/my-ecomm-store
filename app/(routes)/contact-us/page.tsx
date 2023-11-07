@@ -1,3 +1,5 @@
+import NextNav from "@/components/next-Nav";
+
 const ContactUsPage = () => {
 
     async function create(formData: FormData) {

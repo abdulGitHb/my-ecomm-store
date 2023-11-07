@@ -2,12 +2,14 @@ export interface Billboard {
     id: string;
     label: string;
     imageUrl: string;
+    categories: Category[];
 }
 
 export interface Category{
     id: string;
     name: string;
     billboard: Billboard;
+    products: Product[];
 }
 
 export interface Product{
@@ -16,6 +18,7 @@ export interface Product{
     price: string;
     category: Category;
     isFeatured: boolean;
+    material: string;
     size:Size;
     color:Color;
     images: Image[];

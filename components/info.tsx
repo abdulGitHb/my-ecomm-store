@@ -3,7 +3,7 @@
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
+import { Heart, Minus, Plus, ShoppingCart } from "lucide-react";
 
 interface InfoProps {
     data: Product;
@@ -15,12 +15,12 @@ const Info: React.FC<InfoProps> = ({data}) => {
             <h1 className="text-4xl font-serif font-semibold text-gray-900">{data.name}</h1>
             <div>⭐⭐⭐⭐⭐ <span>10 reviews</span> </div>
             <div className="mt-3 flex items-center justify-start gap-3">
-                <p className="text-xl line-through font-sans text-gray-600">
-                    {/* here we will show original price */}
-                    <Currency value={data?.price}/>
-                </p>
                 <p className="text-2xl font-sans text-gray-900">
                     {/* here we will show discounted price */}
+                    <Currency value={data?.price}/>
+                </p>
+                <p className="text-lg line-through font-sans text-gray-600">
+                    {/* here we will show original price */}
                     <Currency value={data?.price}/>
                 </p>
             </div>
@@ -39,6 +39,12 @@ const Info: React.FC<InfoProps> = ({data}) => {
                     </div>
                 </div>
                 <div className="flex items-center gap-x-4">
+                    <h3 className="font-semibold text-black">Material:</h3>
+                    <div>
+                        {`${data?.material}`}
+                    </div>
+                </div>
+                <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black"> Color:</h3>
                     <div className="h-6 w-6 rounded-full border border-gray-600"
                         style={{backgroundColor: data?.color?.value}}
@@ -54,10 +60,15 @@ const Info: React.FC<InfoProps> = ({data}) => {
                     <Button className="p-1 bg-[#965a22]"> <Plus/> </Button>
 
                 </div>
-                <Button className="flex items-center gap-x-2">
-                    Add To Cart
-                    <ShoppingCart/>
-                </Button>
+                <div className="flex gap-x-2">
+                    <Button className="flex items-center gap-x-2">
+                        Add To Cart
+                        <ShoppingCart/>
+                    </Button>
+                    <Button className="p-3">
+                        <Heart/>
+                    </Button>
+                </div>
             </div>
         </div>
     )
