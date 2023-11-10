@@ -35,7 +35,7 @@ const ProductPage:React.FC<ProductPageProps> = async ({params}) =>{
                     </div>
                     <hr className="my-10" />
                     {/* suggested products */}
-                    <FeatureProdList title="Related Items" items={filteredSuggested}/>
+                    <FeatureProdList title="YOU MIGHT ALSO LIKE" items={filteredSuggested}/>
                     <hr />
                     <div>
                         <h1 className="text-3xl font-bold mt-4">Customer Reviews</h1>

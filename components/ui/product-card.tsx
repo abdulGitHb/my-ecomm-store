@@ -42,7 +42,6 @@ const ProductCard:React.FC<ProductCard> =({data})=>{
         favourite.addItem(data);
     }
 
-
     return (
         <div onClick={handleClick} className="relative bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
             <Image
@@ -77,7 +76,7 @@ const ProductCard:React.FC<ProductCard> =({data})=>{
 
         {/* Description */}
             <div>
-                <p className="font-semibold text-lg">
+                <p className="font-semibold text-xl w-[173px] break-words">
                     {data.name}
                 </p>
                 <p className="text-sm text-gray-500">

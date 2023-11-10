@@ -28,16 +28,16 @@ const ProductList: React.FC<ProductListProps> =({title, items})=>{
 
     return(
         <>
-            <div className="space-y-4">
-                <h3 className="font-bold text-3xl">{title}</h3>
+            <div className="space-y-4 mt-6">
+                <h3 className="font-bold text-3xl text-center">{title}</h3>
             </div>
                 {items.length===0 && <NoResult/>}
             <div className="relative flex items-center w-full">
                 {visible && <ChevronLeft onClick={slideLeft} className="opacity-50 hover:opacity-100 cursor-pointer" size={40}/>}
                 <div id='slider'
-                    className='w-full h-full overflow-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
+                    className='flex w-full h-full overflow-x-scroll overflow-scroll scroll scroll-smooth scrollbar-hide'>
                     {items.map((item)=>(
-                        <div key={item.id} className="w-[230px] inline-block p-2">
+                        <div key={item.id} className="min-w-[180px] sm:min-w-[230px] inline-block p-2">
                             <ProductCard key={item.id} data={item}/>
                         </div>
                     ))}

@@ -24,36 +24,41 @@ const HomePage = async() =>{
     const categories = await getCategories();
     
     return (
+        <>
+            <BillboardSlider items={billboards}/>
+            <Image className="" src={billVec3} alt="" />
         <Container>
-            <div className="pb-10">
+            <div className="pb-10 font-serif">
 
-                <BillboardSlider items={billboards}/>
-            
-                <div className="-mt-6 sm:-mt-9 relative z-10 px-4 sm:px-6 lg:px-8">
-                    <Image className="" src={billVec3} alt="" />
-                    
-                    <ProductList title="Featured Products" items={products}/>
-                    
-                    {/* <Image className="" src={billboardVector2} alt="" /> */}
-
-                </div>
                 <div className="gap-y-8 px-4 sm:px-6 lg:px-8">
                     <div className="mt-3">
-                        <h1 className="text-3xl font-bold">Shop by Category</h1>
+                        <h1 className="text-3xl font-bold">SHOP BY CATEGORY</h1>
                         <ShopCategoryList items={categories}/>
                     </div>
                 </div>
+            
+                <div className="mt-4 relative z-10 px-4 sm:px-6 lg:px-8">
+                    <ProductList title="FEATURED PRODUCTS" items={products}/>
+                    {/* <Image className="" src={billboardVector2} alt="" /> */}
+                </div>
+
                 <div className="gap-y-8 px-4 sm:px-6 lg:px-8">
                     <div>
-                        <ProductList title="Cups & Mugs" items={products}/>
+                        <ProductList title="CUPS & MUGS" items={products}/>
                     </div>
-                        {/* <Image className="" src={billboardVector} alt="" /> */}
+                    {/* <Image className="" src={billboardVector} alt="" /> */}
                 </div>
+
                 <div className="gap-y-8 px-4 sm:px-6 lg:px-8">
-                    <ProductList title="Jugs & Glasses" items={products}/>
+                    <ProductList title="JUGS & GLASSES" items={products}/>
+                </div>
+
+                <div>
+                    Random customer reviews will be added here
                 </div>
             </div>
         </Container>
+    </>
     )
 }
 

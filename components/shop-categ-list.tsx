@@ -25,12 +25,12 @@ const ShopCategoryList: React.FC<ShopCategoryListProps> =({items}) => {
 
     const slideLeft = () => {
         let slider:any = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
+        slider.scrollLeft = slider.scrollLeft - 400;
       };
     
       const slideRight = () => {
         let slider:any = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
+        slider.scrollLeft = slider.scrollLeft + 400;
       };
 
 
@@ -44,8 +44,8 @@ const ShopCategoryList: React.FC<ShopCategoryListProps> =({items}) => {
                         <div key={item.id} className="inline-block p-3">
                             <Link href={`/category/${item.id}`}>
                                 <Image 
-                                    width={150}
-                                    height={150}
+                                    width={80}
+                                    height={80}
                                     src="https://res.cloudinary.com/dmquwnaeb/image/upload/v1699348006/djdxpr83alzs27l9rzhg.png"
                                     alt="image"
                                     className="rounded-full border-2 border-[#bd7634]"
